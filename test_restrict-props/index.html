@@ -16,10 +16,6 @@
             let newWind = window.open("http://example.com", "_blank", "popup=yes");
             window.setTimeout(function(){
                 console.log("tryna close the popup");
-                // newWind.focus();
-                // var daddy = window.self;
-                // daddy.opener = window.self;
-                // daddy.close();
                 newWind.close();
             },5000);
         }
