@@ -1,7 +1,33 @@
 <html>
 <head>
+    <meta name="google-signin-client_id" content="<USE_CLIENT_ID>.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+    <script type="text/javascript">
+        function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+        }
+
+        function dopop() {
+            let newWind = window.open("http://example.com", "_blank", "popup=yes");
+            window.setTimeout(function(){
+                console.log("tryna close the popup");
+                // newWind.focus();
+                // var daddy = window.self;
+                // daddy.opener = window.self;
+                // daddy.close();
+                newWind.close();
+            },5000);
+        }
+    </script>
 </head>
 <body>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <button onclick="javascript:dopop();">Click</button>
     <script type="text/javascript">
         if( typeof SharedArrayBuffer !== 'undefined' ) {
             console.log("SAB enabled");
